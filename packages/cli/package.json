@@ -1,0 +1,72 @@
+{
+  "name": "@useclaudia/cli",
+  "version": "0.3.0",
+  "description": "The Claudia command line (useclaudia.xyz): coin insights and holder labels on Solana and Robinhood Chain (beta), live trades and feeds, an AI agent on your own model key, MCP install for 13 AI apps, media and social posting with your own keys, and trading/launching with local safety caps.",
+  "keywords": [
+    "claudia",
+    "cli",
+    "solana",
+    "robinhood chain",
+    "pump.fun",
+    "ai agent",
+    "agents",
+    "openrouter",
+    "memecoin",
+    "launchpad",
+    "mcp",
+    "insights",
+    "gmgn",
+    "terminal"
+  ],
+  "homepage": "https://useclaudia.xyz/docs/developers/cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudia-onchain/Claudia-NPM.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/claudia-onchain/Claudia-NPM/issues"
+  },
+  "license": "MIT",
+  "author": "Claudia (https://useclaudia.xyz)",
+  "type": "module",
+  "bin": {
+    "claudia": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json && node -e \"require('fs').chmodSync('dist/cli.js',0o755)\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@useclaudia/sdk": "^0.3.0",
+    "@useclaudia/media": "^0.3.0",
+    "@useclaudia/social": "^0.3.0"
+  },
+  "peerDependencies": {
+    "ws": ">=8",
+    "viem": ">=2.21.0"
+  },
+  "peerDependenciesMeta": {
+    "ws": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
+  }
+}

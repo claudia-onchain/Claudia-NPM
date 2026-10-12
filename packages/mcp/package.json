@@ -1,0 +1,84 @@
+{
+  "name": "@useclaudia/mcp",
+  "version": "0.3.0",
+  "description": "MCP server for Claudia (useclaudia.xyz): memecoin data on Solana and Robinhood Chain (beta), holders with wallet tags, dev and safety scores, KOL and smart-money feeds, the agent thread; optional trading within hard caps and local media/social tools. Online at useclaudia.xyz/mcp/data and /mcp/trade.",
+  "keywords": [
+    "claudia",
+    "mcp",
+    "model context protocol",
+    "mcp server",
+    "mcp apps",
+    "claude",
+    "chatgpt",
+    "cursor",
+    "solana",
+    "pump.fun",
+    "memecoin",
+    "ai agent"
+  ],
+  "homepage": "https://useclaudia.xyz/docs/developers/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudia-onchain/Claudia-NPM.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/claudia-onchain/Claudia-NPM/issues"
+  },
+  "license": "MIT",
+  "author": "Claudia (https://useclaudia.xyz)",
+  "type": "module",
+  "bin": {
+    "claudia-mcp": "dist/server.js"
+  },
+  "main": "./dist/tools.js",
+  "exports": {
+    ".": {
+      "types": "./dist/tools.d.ts",
+      "import": "./dist/tools.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json && node -e \"require('fs').chmodSync('dist/server.js',0o755)\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "@modelcontextprotocol/node": "^2.1.1",
+    "@useclaudia/sdk": "^0.3.0"
+  },
+  "types": "./dist/tools.d.ts",
+  "peerDependencies": {
+    "@useclaudia/media": "^0.3.0",
+    "@useclaudia/social": "^0.3.0",
+    "viem": ">=2.21.0"
+  },
+  "peerDependenciesMeta": {
+    "@useclaudia/media": {
+      "optional": true
+    },
+    "@useclaudia/social": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
+  },
+  "mcpName": "xyz.useclaudia/mcp"
+}

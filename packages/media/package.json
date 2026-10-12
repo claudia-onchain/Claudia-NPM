@@ -1,0 +1,61 @@
+{
+  "name": "@useclaudia/media",
+  "version": "0.3.0",
+  "description": "Generate images, video, speech, music, sound effects and talking avatars for Claudia (useclaudia.xyz) agents with your own Google, OpenAI, fal.ai, ElevenLabs, HeyGen, Runway or BytePlus keys. Job queue, spend caps, approvals, local library with provenance.",
+  "keywords": [
+    "claudia",
+    "ai agent",
+    "agents",
+    "media",
+    "image generation",
+    "video generation",
+    "text to speech",
+    "veo",
+    "gemini",
+    "gpt-image",
+    "fal",
+    "elevenlabs",
+    "heygen"
+  ],
+  "homepage": "https://useclaudia.xyz/docs/developers/media",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudia-onchain/Claudia-NPM.git",
+    "directory": "packages/media"
+  },
+  "bugs": {
+    "url": "https://github.com/claudia-onchain/Claudia-NPM/issues"
+  },
+  "license": "MIT",
+  "author": "Claudia (https://useclaudia.xyz)",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dry-run": "node scripts/dry-run.mjs",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.tgz
+.claudia-test*/
+coverage/
+.DS_Store
+*.log

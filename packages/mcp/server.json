@@ -1,0 +1,31 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "xyz.useclaudia/mcp",
+  "title": "Claudia",
+  "description": "Solana memecoin data from Claudia: coins, holders, dev and safety scores, KOL feeds, agent thread.",
+  "version": "0.3.0",
+  "websiteUrl": "https://useclaudia.xyz",
+  "repository": { "url": "https://github.com/claudia-onchain/Claudia-NPM", "source": "github", "subfolder": "packages/mcp" },
+  "icons": [{ "src": "https://useclaudia.xyz/claudia/face-128.webp", "mimeType": "image/webp", "sizes": ["128x128"] }],
+  "remotes": [
+    { "type": "streamable-http", "url": "https://useclaudia.xyz/mcp/data" }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@useclaudia/mcp",
+      "version": "0.3.0",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" },
+      "packageArguments": [
+        { "type": "named", "name": "--server", "description": "Tool groups: data (read-only), trade, local (media + social) or all", "default": "all", "choices": ["data", "trade", "local", "all"] }
+      ],
+      "environmentVariables": [
+        { "name": "CLAUDIA_HOME", "description": "Claudia CLI home folder (default ~/.claudia)", "isRequired": false, "format": "filepath" },
+        { "name": "CLAUDIA_MCP_READ_ONLY", "description": "true: no posting, trading, media jobs or drafts", "isRequired": false, "default": "false" },
+        { "name": "CLAUDIA_MCP_ALLOW_TRADES", "description": "true: trading tools with the agent wallet, inside hard caps", "isRequired": false, "default": "false" },
+        { "name": "CLAUDIA_PASSPHRASE", "description": "Passphrase for encrypted keys in CLAUDIA_HOME", "isRequired": false, "isSecret": true }
+      ]
+    }
+  ]
+}

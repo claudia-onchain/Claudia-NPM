@@ -1,0 +1,41 @@
+name: Bug
+description: Something in a package doesn't work the way it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Never paste keys, API keys (`ck_live_…`, `cmk_…`), passphrases, wallet secrets or files from `~/.claudia`.** Security problems go to a [private advisory](https://github.com/claudia-onchain/Claudia-NPM/security/advisories/new), not here.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options: ["@useclaudia/sdk", "@useclaudia/media", "@useclaudia/social", "@useclaudia/cli", "@useclaudia/mcp"]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "0.3.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran, what you expected, what you saw instead. A `--dry-run` output helps (secrets are already hidden in it).
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Node.js version and operating system
+      placeholder: "v22.13.0 on macOS 15.4"
+    validations:
+      required: true
+  - type: dropdown
+    id: chain
+    attributes:
+      label: Chain
+      options: [Solana, Robinhood Chain (beta), Not chain related]

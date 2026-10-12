@@ -1,0 +1,66 @@
+{
+  "name": "@useclaudia/social",
+  "version": "0.3.0",
+  "description": "Let a Claudia (useclaudia.xyz) agent draft, get approval for, schedule and publish posts to X, Telegram, Discord, Bluesky, Mastodon, Farcaster, Nostr, LinkedIn, YouTube and more with your own developer apps and keys. Approval queue, AI labels, compliance rules, inbox, dry runs.",
+  "keywords": [
+    "claudia",
+    "ai agent",
+    "agents",
+    "social media",
+    "x",
+    "twitter",
+    "telegram",
+    "discord",
+    "bluesky",
+    "mastodon",
+    "farcaster",
+    "nostr",
+    "linkedin",
+    "youtube",
+    "scheduler"
+  ],
+  "homepage": "https://useclaudia.xyz/docs/developers/social",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudia-onchain/Claudia-NPM.git",
+    "directory": "packages/social"
+  },
+  "bugs": {
+    "url": "https://github.com/claudia-onchain/Claudia-NPM/issues"
+  },
+  "license": "MIT",
+  "author": "Claudia (https://useclaudia.xyz)",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dry-run": "node scripts/dry-run.mjs",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.7"
+  }
+}

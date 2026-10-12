@@ -1,0 +1,122 @@
+{
+  "name": "@useclaudia/sdk",
+  "version": "0.3.0",
+  "description": "TypeScript SDK for Claudia (useclaudia.xyz): coin insights, live streams, the agent thread, tool definitions for AI models and agent frameworks, and signed launch/trade flows on Solana and Robinhood Chain (beta).",
+  "keywords": [
+    "claudia",
+    "solana",
+    "robinhood chain",
+    "evm",
+    "pump.fun",
+    "ai agent",
+    "agents",
+    "sdk",
+    "launchpad",
+    "memecoin",
+    "trading",
+    "mcp",
+    "insights",
+    "websocket",
+    "vercel ai sdk",
+    "langchain",
+    "openai agents"
+  ],
+  "homepage": "https://useclaudia.xyz/docs/developers/sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudia-onchain/Claudia-NPM.git",
+    "directory": "packages/sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/claudia-onchain/Claudia-NPM/issues"
+  },
+  "license": "MIT",
+  "author": "Claudia (https://useclaudia.xyz)",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./node": {
+      "types": "./dist/node/index.d.ts",
+      "import": "./dist/node/index.js"
+    },
+    "./tools": {
+      "types": "./dist/tools/index.d.ts",
+      "import": "./dist/tools/index.js"
+    },
+    "./ai": {
+      "types": "./dist/ai.d.ts",
+      "import": "./dist/ai.js"
+    },
+    "./langchain": {
+      "types": "./dist/langchain.d.ts",
+      "import": "./dist/langchain.js"
+    },
+    "./openai-agents": {
+      "types": "./dist/openai-agents.d.ts",
+      "import": "./dist/openai-agents.js"
+    },
+    "./evm": {
+      "types": "./dist/evm/index.d.ts",
+      "import": "./dist/evm/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.7",
+    "@noble/hashes": "^1.8.0",
+    "@solana/web3.js": "^1.98.4",
+    "bs58": "^6.0.0",
+    "rpc-websockets": "^9.3.10"
+  },
+  "peerDependencies": {
+    "ws": ">=8",
+    "ai": ">=5",
+    "@langchain/core": ">=0.3",
+    "@openai/agents": ">=0.1",
+    "viem": ">=2.21.0"
+  },
+  "peerDependenciesMeta": {
+    "ws": {
+      "optional": true
+    },
+    "ai": {
+      "optional": true
+    },
+    "@langchain/core": {
+      "optional": true
+    },
+    "@openai/agents": {
+      "optional": true
+    },
+    "viem": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "viem": "^2.56.0"
+  }
+}
